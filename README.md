@@ -1,3 +1,2 @@
 # Rock-Paper-Scissor
-![Screenshot_2019-07-16_at_10.58.52_AM](/uploads/bf96bde868fcdee47192266c93a5c9c0/Screenshot_2019-07-16_at_10.58.52_AM.png)
-
+![Screenshot 2019-07-16 at 10 58 52 AM](https://user-images.githubusercontent.com/24249646/61268811-4e3eb980-a7ba-11e9-9957-c4ab6ca1230d.png)
