@@ -1,0 +1,132 @@
+<html>
+  <head>
+    <title>Rock Paper Scissor</title>
+    <style>
+      img {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main" style="display:flex;justify-content: center;">
+      <div id="bot" class="cards">
+        <h2>Bot</h2>
+        <input type="text" value="" id="botscore" />
+        <div style="padding:20px" id="rockb">
+          <img src="rock.jpg" />
+        </div>
+
+        <div style="padding:20px" id="paperb">
+          <img src="paper.png" />
+        </div>
+
+        <div style="padding:20px" id="scissorb">
+          <img src="scissor.png" />
+        </div>
+      </div>
+      <div id="player" style="margin-left:auto;" class="cards">
+        <h2>Player</h2>
+        <input type="text" value="" id="playerscore" />
+        <div style="padding:20px;" id="rock">
+          <img src="rock.jpg" onclick="play(0)" />
+        </div>
+
+        <div style="padding:20px" id="paper">
+          <img src="paper.png" onclick="play(1)" />
+        </div>
+
+        <div style="padding:20px" id="scissor">
+          <img src="scissor.png" onclick="play(2)" />
+        </div>
+      </div>
+    </div>
+    <div align="center">
+      <input type="text" value="" id="msg" />
+      <input type="button" value="play" onclick="reset()" />
+      <input type="button" value="Game start agein" onclick="replay()" />
+    </div>
+
+    <script>
+      var bots = 0;
+      var players = 0;
+      function play(num) {
+        var max = 100;
+        var min = 1;
+        var r = Math.floor(Math.random() * (+max - +min)) + +min;
+
+        r = r % 3;
+        console.log(r);
+
+        if (r == 0) {
+          document.getElementById("rockb").style.backgroundColor = "blue";
+        } else if (r == 1) {
+          document.getElementById("paperb").style.backgroundColor = "blue";
+        } else if (r == 2) {
+          document.getElementById("scissorb").style.backgroundColor = "blue";
+        }
+
+        if (num == 0) {
+          document.getElementById("rock").style.backgroundColor = "blue";
+        } else if (num == 1) {
+          document.getElementById("paper").style.backgroundColor = "blue";
+        } else if (num == 2) {
+          document.getElementById("scissor").style.backgroundColor = "blue";
+        }
+        if (r == num) {
+          console.log("Draw");
+          var t = document.getElementById("msg");
+          t.value = "Draw";
+        } else if (r == 0 && num == 1) {
+          console.log("Player won");
+          var t = document.getElementById("msg");
+          t.value = "Player won";
+          players++;
+        } else if (r == 0 && num == 2) {
+          console.log("Bot won");
+          var t = document.getElementById("msg");
+          t.value = "Bot won";
+          bots++;
+        } else if (r == 1 && num == 0) {
+          console.log("Bot won");
+          var t = document.getElementById("msg");
+          t.value = "Bot won";
+          bots++;
+        } else if (r == 1 && num == 2) {
+          console.log("Player won");
+          var t = document.getElementById("msg");
+          t.value = "Player won";
+          players++;
+        } else if (r == 2 && num == 1) {
+          console.log("Bot won");
+          var t = document.getElementById("msg");
+          t.value = "Bot won";
+          bots++;
+        } else if (r == 2 && num == 0) {
+          console.log("Player won");
+          var t = document.getElementById("msg");
+          t.value = "PLayer won";
+          players++;
+        }
+
+        document.getElementById("botscore").value = bots;
+
+        document.getElementById("playerscore").value = players;
+      }
+
+      function replay() {
+        setTimeout(() => {
+          location.reload();
+        }, 0);
+      }
+
+      function reset() {
+        document.getElementById("rock").style.backgroundColor = "#ddd";
+        document.getElementById("paper").style.backgroundColor = "#ddd";
+        document.getElementById("scissor").style.backgroundColor = "#ddd";
+        document.getElementById("rockb").style.backgroundColor = "#ddd";
+        document.getElementById("paperb").style.backgroundColor = "#ddd";
+        document.getElementById("scissorb").style.backgroundColor = "#ddd";
+      }
+    </script>
+  </body>
+</html>
