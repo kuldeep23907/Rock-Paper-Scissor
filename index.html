@@ -41,15 +41,18 @@
       </div>
     </div>
     <div align="center">
+       <input type="text" id="inp1" name="inp1" value=""  placeholder="Enter Your Name" ><br/>
       <input type="text" value="" id="msg" />
       <input type="button" value="play" onclick="reset()" />
-      <input type="button" value="Game start agein" onclick="replay()" />
+      <input type="button" value="Game start again" onclick="replay()" />
     </div>
 
     <script>
       var bots = 0;
       var players = 0;
       function play(num) {
+        var  val1 = document.getElementById("inp1").value;
+        document.getElementById("demo").innerHTML = val1;
         var max = 100;
         var min = 1;
         var r = Math.floor(Math.random() * (+max - +min)) + +min;
